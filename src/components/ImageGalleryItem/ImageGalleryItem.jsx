@@ -16,8 +16,7 @@ export default function ImageGalleryItem({ webformatURL, tags, largeImageURL }) 
   <div >
     <li
       className={css.ImageGalleryItem}
-      onClick={
-        toggleModal()
+      onClick={()=> toggleModal()
       }
     >
       <img

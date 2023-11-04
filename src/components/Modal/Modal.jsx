@@ -5,7 +5,9 @@ import { useEffect } from 'react';
 
 
 
-function Modal(hits, onCloseModal) {
+function Modal({ data, onCloseModal } ) {
+const {tags, largeImageURL} = data
+
 useEffect(() => {
   const closeEscape = evt => {
       if (evt.code === 'Escape') {
@@ -23,17 +25,11 @@ useEffect(() => {
     };
 }, [onCloseModal]);
 
-
-
-
-
-
     function closeOverlay(event) {
   if (event.currentTarget !== event.target) {
     onCloseModal();
   }
 }
-  
 
 
   return (
@@ -41,8 +37,8 @@ useEffect(() => {
       <div className={css.Modal}>
         <img
           className={css.largeImg}
-          src={hits.largeImageURL}
-          alt={hits.tags}
+          src={largeImageURL}
+          alt={tags}
         />
       </div>
     </div>
@@ -52,50 +48,6 @@ useEffect(() => {
 export default Modal
 
 
-
-
-
-
-
-
-
-
-
-
-// class Modal extends React.Component {
-//   componentDidMount() {
-//     document.addEventListener('keydown', this.closeEscape);
-//     document.body.classList.toggle('overflow');
-//   }
-
-//   componentWillUnmount() {
-//     document.removeEventListener('keydown', this.closeEscape);
-//     document.body.classList.toggle('overflow');
-//   }
-
-//   closeEscape = event => {
-//     if (event.code === 'Escape') {
-//       this.props.onCloseModal();
-//     }
-//   };
-
-//   closeOverlay = event => {
-//     if (event.currentTarget !== event.target) {
-//       this.props.onCloseModal();
-//     }
-//   };
-
-//   render() {
-//     const { largeImageURL, tags } = this.props.data;
-//     return (
-//       <div className={css.Overlay} onClick={this.closeOverlay}>
-//         <div className={css.Modal}>
-//           <img className={css.largeImg} src={largeImageURL} alt={tags} />
-//         </div>
-//       </div>
-//     );
-//   }
-// }
 Modal.propTypes = {
   dataImage: PropTypes.shape({
     tags: PropTypes.string.isRequired,
