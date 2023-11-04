@@ -12,7 +12,6 @@ export default function App() {
   
   const [images, setImages] = useState([])
   const [isLoading, setIsLoading] = useState(false);
-  const [err, setErr] = useState(null);
   const [dataSubmit, setDataSubmit] = useState('');
   const [page, setPage] = useState(1);
   const [totalImages, setTotalImages] = useState(0);
@@ -36,9 +35,9 @@ export default function App() {
 
         setImages(prevState => [...prevState, ...data.hits]);
         setTotalImages(data.total);
-      } catch (err) {
-        toast.error(err.message);
-        setErr(err.massage);
+      } catch (error) {
+        toast.error(error.message);
+
       } finally {
         setIsLoading(false);
       }
