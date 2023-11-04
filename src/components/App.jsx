@@ -1,4 +1,4 @@
-import {useState, useEffect, useCallback} from 'react';
+import {useState, useEffect} from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
@@ -11,7 +11,7 @@ export default function App() {
   
   const [images, setImages] = useState([])
   const [isLoading, setIsLoading] = useState(false);
-  const [err, setErr] = useState(null);
+  // const [err, setErr] = useState(null);
   const [dataSubmit, setDataSubmit] = useState('');
   const [page, setPage] = useState(1);
   const [totalImages, setTotalImages] = useState(0);
