@@ -40,7 +40,7 @@ export default function App() {
         setImages(prevState => [...prevState, ...data.hits]);
         setTotalImages(data.totalHits);
       } catch (err) {
-        setErr(err.massage);
+        // setErr(err.massage);
         toast.error(err.massage);
       } finally {
         setIsLoading(false);
